@@ -8,6 +8,22 @@ FreeRTOS ticking rate of 1000hz and other configs are critical. Be sure to use t
 
 # ESP32 Bluetooth/BLE to PS/2 keyboard/mouse adapter
 
+## Hardware (this fork)
+
+This fork adds **carrier boards** for the adapter in [`hardware/`](hardware/README.md): an SMD and a THT version,
+each for a plugged-in *D1 mini ESP32* or a soldered-on *ESP32-WROOM-32E*, with level shifters and a 4-pin
+connector for a PS/2 or AT keyboard cable. KiCad 10 files, Gerbers for JLCPCB and schematics are included;
+downloads are on the [release v0.1](https://github.com/sfambach/esp32-bt2ps2/releases/tag/v0.1).
+
+> ⚠️ **The boards are not tested yet** — designed and DRC-checked, but not manufactured. Details and open points in
+> [`hardware/README.md`](hardware/README.md).
+
+| SMD | THT |
+|---|---|
+| ![SMD board](hardware/bt2ps2-smd/bt2ps2-3d.png) | ![THT board](hardware/bt2ps2-tht/bt2ps2-tht-3d.png) |
+| [![SMD schematic](hardware/bt2ps2-smd/bt2ps2-schaltplan.svg)](hardware/bt2ps2-smd/bt2ps2-schaltplan.pdf) | [![THT schematic](hardware/bt2ps2-tht/bt2ps2-tht-schaltplan.svg)](hardware/bt2ps2-tht/bt2ps2-tht-schaltplan.pdf) |
+
+
 Project to adapt a Bluetooth or BLE keyboard and/or mouse to use on a computer with compatible PS/2 keyboard/mouse connector/s, wirelessly.
 Note that big DIN 5 pin connectors ("AT" keyboard) and Mini-DINs (the violet ones) are equally supported.
 

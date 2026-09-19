@@ -1,0 +1,107 @@
+(version 1)
+
+# JLCPCB, 2 Lagen, 1 oz Kupfer, Standardfertigung.
+# Quelle: jlcpcb.com/capabilities/pcb-capabilities, abgelesen 2026-09-19.
+# "error"   = JLCPCB-Grenze bzw. Aufpreis-Grenze, unterschreiten geht nicht.
+# "warning" = JLCPCB-Empfehlung, unterschreiten nur mit Grund.
+# Je Pruefung gilt in KiCad nur die LETZTE passende Regel (gemessen 2026-09-19):
+# eine Warnstufe ueber einer Fehlergrenze wuerde die Fehlergrenze aufheben.
+# Die Reserve steckt deshalb in den Standardbreiten der Netzklassen, nicht hier.
+# Ausfuehrlich: regeln/regelsatz-jlcpcb.md
+
+# --- Leiterbahnen und Abstaende ------------------------------------------
+
+(rule "JLC Leiterbahn min 0,10"
+  (constraint track_width (min 0.10mm)))
+
+(rule "JLC Kupferabstand min 0,10"
+  (constraint clearance (min 0.10mm)))
+
+(rule "JLC SMD-Pad zu Pad (fremde Netze) 0,15"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad' && A.Net != B.Net")
+  (constraint clearance (min 0.15mm)))
+
+# --- Platinenrand ---------------------------------------------------------
+
+(rule "JLC Kupfer zu Fraesrand 0,2 (Reserve 0,3)"
+  (constraint edge_clearance (min 0.3mm)))
+
+# --- Vias ----------------------------------------------------------------
+
+# 0,15er Bohrung kostet immer Aufpreis; 0,2/0,25er Bohrung nur mit Durchmesser >= 0,45 ohne Aufpreis.
+(rule "JLC Via-Bohrung ohne Aufpreis min 0,2"
+  (condition "A.Type == 'Via'")
+  (constraint hole_size (min 0.2mm))
+  (constraint via_diameter (min 0.45mm)))
+
+(rule "JLC Via-Restring min 0,05 (Durchmesser = Bohrung + 0,1)"
+  (condition "A.Type == 'Via'")
+  (constraint annular_width (min 0.05mm)))
+
+(rule "JLC Via-Bohrung zu Leiterbahn 0,2"
+  (condition "A.Type == 'Via'")
+  (constraint hole_clearance (min 0.2mm)))
+
+(rule "JLC Via Loch-zu-Loch 0,2"
+  (condition "A.Type == 'Via' && B.Type == 'Via'")
+  (constraint hole_to_hole (min 0.2mm)))
+
+# --- Bedrahtete Pads (PTH) und Montageloecher (NPTH) ---------------------
+
+(rule "JLC PTH-Restring min 0,18"
+  (condition "A.Type == 'Pad' && A.isPlated()")
+  (constraint annular_width (min 0.18mm)))
+
+(rule "JLC PTH zu Leiterbahn min 0,28"
+  (condition "A.Type == 'Pad' && A.isPlated()")
+  (constraint hole_clearance (min 0.28mm)))
+
+(rule "JLC NPTH-Bohrung min 0,5"
+  (condition "A.Type == 'Pad' && !A.isPlated()")
+  (constraint hole_size (min 0.5mm)))
+
+(rule "JLC NPTH zu Leiterbahn 0,2"
+  (condition "A.Type == 'Pad' && !A.isPlated()")
+  (constraint hole_clearance (min 0.2mm)))
+
+(rule "JLC Pad Loch-zu-Loch 0,45"
+  (condition "A.Type == 'Pad' && B.Type == 'Pad'")
+  (constraint hole_to_hole (min 0.45mm)))
+
+# --- Bestueckungsdruck ---------------------------------------------------
+
+(rule "JLC Druck Schrifthoehe min 1,0"
+  (layer "?.Silkscreen")
+  (constraint text_height (min 1.0mm)))
+
+(rule "JLC Druck Strichstaerke min 0,15"
+  (layer "?.Silkscreen")
+  (constraint text_thickness (min 0.15mm)))
+
+(rule "JLC Druck zu Pad 0,15"
+  (layer "?.Silkscreen")
+  (constraint silk_clearance (min 0.15mm)))
+
+# --- Gute Praxis ---------------------------------------------------------
+
+(rule "Leistung: Bahn min 0,5"
+  (condition "A.NetClass == 'Leistung'")
+  (constraint track_width (min 0.5mm)))
+
+(rule "Leistung 2A: Bahn min 1,0"
+  (condition "A.NetClass == 'Leistung_2A'")
+  (constraint track_width (min 1.0mm)))
+
+(rule "USB-Paar: Laengenunterschied max 0,5"
+  (severity warning)
+  (condition "A.NetClass == 'USB'")
+  (constraint skew (max 0.5mm))
+  (constraint diff_pair_uncoupled (max 3mm)))
+
+# --- Nur dieses Projekt --------------------------------------------------
+
+# Die Antenne von U2 ragt ueber den Rand; ihr Aufdruck wird dort abgeschnitten.
+(rule "Antennen-Aufdruck U2 am Rand"
+  (severity ignore)
+  (condition "A.memberOfFootprint('U2') && B.Layer == 'Edge.Cuts'")
+  (constraint silk_clearance))
