@@ -80,4 +80,5 @@ Both are 2-layer boards made for JLCPCB's standard process (1.6 mm, 1 oz, HASL).
   and was checked against the pinout of an actual board; the outline and antenna position are estimated (±1 mm).
 - The traces were laid out by a simple grid router and checked with KiCad's DRC — functional, not pretty.
 
-Designed by Stefan Fambach — [fambach.net](https://www.fambach.net).
+Designed by Stefan Fambach — [fambach.net](https://www.fambach.net). The hardware in this folder is licensed under the
+[MIT License](LICENSE), like the firmware.
