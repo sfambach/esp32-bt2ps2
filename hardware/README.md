@@ -75,6 +75,7 @@ Both are 2-layer boards made for JLCPCB's standard process (1.6 mm, 1 oz, HASL).
 | `fertigung/bestueckung-*.pdf` | assembly drawings |
 | `fertigung/*-ibom.html` | interactive BOM (open in a browser) |
 | `fertigung/stueckliste.csv` | bill of materials |
+| `fertigung/*-jlcpcb-positionen.csv` | pick-and-place data, origin at the lower left corner of the board |
 
 ## Notes and open points
 
