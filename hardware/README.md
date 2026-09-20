@@ -35,6 +35,10 @@ Both are 2-layer boards made for JLCPCB's standard process (1.6 mm, 1 oz, HASL).
 
 [![THT schematic](bt2ps2-tht/bt2ps2-tht-schaltplan.svg)](bt2ps2-tht/bt2ps2-tht-schaltplan.pdf)
 
+## Enclosures
+
+3D-printable cases for both boards (shell + lid, OpenSCAD source and STLs) are in [`case/`](case/README.md).
+
 ## What is on the board
 
 - **J1 – keyboard connector to the PC** (JST-XH, 4 pins): `1 = +5V`, `2 = GND`, `3 = DATA`, `4 = CLK` (printed as
