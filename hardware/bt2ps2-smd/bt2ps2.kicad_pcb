@@ -90,7 +90,7 @@
 		(descr "Generic 6mm SW tactile push button")
 		(tags "tact sw push 6mm")
 		(property "Reference" "SW1"
-			(at 3.25 -2 0)
+			(at 3.25 2.25 0)
 			(layer "F.SilkS")
 			(uuid "1bff125d-834e-4d42-94c1-10915ab7d351")
 			(effects
@@ -428,8 +428,8 @@
 		(descr "SOT, 3 Pin (JEDEC TO-236 Var AB https://www.jedec.org/document_search?search_api_views_fulltext=TO-236)")
 		(tags "SOT TO_SOT_SMD")
 		(property "Reference" "Q1"
-			(at 0 0 0)
-			(layer "F.Fab")
+			(at 2 1.5 0)
+			(layer "F.SilkS")
 			(uuid "396af067-52df-4226-a18d-ab69e49e4bfb")
 			(effects
 				(font
@@ -795,8 +795,8 @@
 		(descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing)")
 		(tags "capacitor")
 		(property "Reference" "C1"
-			(at 0 0 0)
-			(layer "F.Fab")
+			(at -2.995 0 0)
+			(layer "F.SilkS")
 			(uuid "d0d8b78e-1714-4035-9121-069ace4888dd")
 			(effects
 				(font
@@ -941,7 +941,7 @@
 		(at 100 100)
 		(descr "Buchsenleisten fuer D1 mini ESP32 (MH-ET LIVE MiniKit): 4 Reihen x 10, Raster 2,54, innere Reihen 22,86 mm. Belegung bestaetigt am Pinout-Bild auf fambach.net. Umriss 39 x 32 mm laut Beitrag; Lage von Antenne und USB aus dem Foto geschaetzt (+/- 1 mm). Ohne Courtyard: das WROOM-32E (Variante B) liegt absichtlich darunter. Pin 1 voll an die Flaeche, weil die Antennen-Sperrflaeche die Stege abschneidet.")
 		(property "Reference" "U1"
-			(at 0 9 0)
+			(at 0 2.1143 0)
 			(layer "F.SilkS")
 			(uuid "b35b1f3e-ea1f-41f9-8c12-8eddd1bc5906")
 			(effects
@@ -1443,7 +1443,7 @@
 		(descr "Through hole straight pin header, 1x02, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x02 2.54mm single row")
 		(property "Reference" "JP1"
-			(at 0 -2.38 0)
+			(at 0 -2.765 0)
 			(layer "F.SilkS")
 			(uuid "5d07adb0-579f-43a4-b18d-cab02a1f203e")
 			(effects
@@ -1671,8 +1671,8 @@
 		(descr "SOT, 5 Pin (JEDEC MO-178 Var AA https://www.jedec.org/document_search?search_api_views_fulltext=MO-178)")
 		(tags "SOT TO_SOT_SMD")
 		(property "Reference" "U3"
-			(at 0 0 0)
-			(layer "F.Fab")
+			(at -3.345 0 0)
+			(layer "F.SilkS")
 			(uuid "ed18aa03-2a8e-4930-8fc5-246020243c45")
 			(effects
 				(font
@@ -2054,8 +2054,8 @@
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R4"
-			(at 0 0 0)
-			(layer "F.Fab")
+			(at 0 1.945 0)
+			(layer "F.SilkS")
 			(uuid "fb6a11ea-c947-4c63-b086-b30545f7f812")
 			(effects
 				(font
@@ -2201,8 +2201,8 @@
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R2"
-			(at 0 0 0)
-			(layer "F.Fab")
+			(at 0 -1.945 0)
+			(layer "F.SilkS")
 			(uuid "9ac05fae-3c80-45ca-98e1-b6f4e6d61a5d")
 			(effects
 				(font
@@ -2348,7 +2348,7 @@
 		(descr "Through hole straight pin header, 1x04, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x04 2.54mm single row")
 		(property "Reference" "J3"
-			(at 0 -2.38 90)
+			(at 0 -3.065 0)
 			(layer "F.SilkS")
 			(uuid "4d6599b7-9e41-4df4-bb32-77ace617d970")
 			(effects
@@ -2596,6 +2596,7 @@
 		(property "Reference" "H2"
 			(at 0 0 0)
 			(layer "F.Fab")
+			(hide yes)
 			(uuid "5b9d3d6f-10df-4829-a0c8-b73e84d24914")
 			(effects
 				(font
@@ -2701,8 +2702,8 @@
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R1"
-			(at 0 0 0)
-			(layer "F.Fab")
+			(at 2.975 1.945 0)
+			(layer "F.SilkS")
 			(uuid "16ee852d-ac84-4226-860e-20e21671cfaf")
 			(effects
 				(font
@@ -2848,8 +2849,8 @@
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R7"
-			(at 0 0 0)
-			(layer "F.Fab")
+			(at 2.975 -1.945 0)
+			(layer "F.SilkS")
 			(uuid "0e89b83b-0985-4feb-a296-30f5a1d47821")
 			(effects
 				(font
@@ -2995,8 +2996,8 @@
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R3"
-			(at 0 0 0)
-			(layer "F.Fab")
+			(at 0 1.945 0)
+			(layer "F.SilkS")
 			(uuid "792e5f91-973d-4185-b2ce-67106e516c31")
 			(effects
 				(font
@@ -3142,8 +3143,8 @@
 		(descr "JST XH series connector, B4B-XH-A (http://www.jst-mfg.com/product/pdf/eng/eXH.pdf)")
 		(tags "connector JST XH vertical")
 		(property "Reference" "J1"
-			(at 0 0 0)
-			(layer "F.Fab")
+			(at -4.245 0.525 0)
+			(layer "F.SilkS")
 			(uuid "8a3ed676-66a9-4229-a77e-86a8186123b4")
 			(effects
 				(font
@@ -3434,8 +3435,8 @@
 		(descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing)")
 		(tags "capacitor")
 		(property "Reference" "C3"
-			(at 0 0 0)
-			(layer "F.Fab")
+			(at 0 1.975 0)
+			(layer "F.SilkS")
 			(uuid "b08944b8-af7c-4f40-9b8a-914559ee07ac")
 			(effects
 				(font
@@ -3581,8 +3582,8 @@
 		(descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing)")
 		(tags "capacitor")
 		(property "Reference" "C2"
-			(at 0 0 0)
-			(layer "F.Fab")
+			(at -2.995 0 0)
+			(layer "F.SilkS")
 			(uuid "2430820a-33cd-4622-8275-deed84600a6e")
 			(effects
 				(font
@@ -3728,8 +3729,8 @@
 		(descr "LED SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing)")
 		(tags "LED")
 		(property "Reference" "D1"
-			(at 0 0 0)
-			(layer "F.Fab")
+			(at 6.125 0 0)
+			(layer "F.SilkS")
 			(uuid "afdb06e8-eb6b-4300-a3c2-037fdf4210fb")
 			(effects
 				(font
@@ -3924,8 +3925,8 @@
 		(descr "SOT, 3 Pin (JEDEC TO-236 Var AB https://www.jedec.org/document_search?search_api_views_fulltext=TO-236)")
 		(tags "SOT TO_SOT_SMD")
 		(property "Reference" "Q2"
-			(at 0 0 0)
-			(layer "F.Fab")
+			(at -3.225 0 0)
+			(layer "F.SilkS")
 			(uuid "7a1115bd-8542-43ec-9342-da292f8a7140")
 			(effects
 				(font
@@ -4293,6 +4294,7 @@
 		(property "Reference" "H1"
 			(at 0 0 0)
 			(layer "F.Fab")
+			(hide yes)
 			(uuid "09cc1703-835d-4b9a-87c7-814fee7fdcda")
 			(effects
 				(font
@@ -4398,8 +4400,8 @@
 		(descr "2.4 GHz Wi­-Fi and Bluetooth 5 (LE) module: https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32e_esp32-wroom-32ue_datasheet_en.pdf")
 		(tags "Bluetooth WiFi Wi-Fi ESP32 WROOM Xtensa LX6")
 		(property "Reference" "U2"
-			(at 0 0 90)
-			(layer "F.Fab")
+			(at 0 14.534999 0)
+			(layer "F.SilkS")
 			(uuid "bd7011f1-5c06-4e54-80ed-017c428e3f93")
 			(effects
 				(font
@@ -5111,7 +5113,7 @@
 		(descr "Generic 6mm SW tactile push button")
 		(tags "tact sw push 6mm")
 		(property "Reference" "SW2"
-			(at 3.25 -2 0)
+			(at 3.25 2.25 0)
 			(layer "F.SilkS")
 			(uuid "5c6c0283-2e3d-42db-848b-89ab219ab48f")
 			(effects
@@ -5449,8 +5451,8 @@
 		(descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing)")
 		(tags "capacitor")
 		(property "Reference" "C5"
-			(at 0 0 180)
-			(layer "B.Fab")
+			(at 0 -1.975 0)
+			(layer "B.SilkS")
 			(uuid "4549395d-9164-4769-8c58-08d539a17afe")
 			(effects
 				(font
@@ -5602,8 +5604,8 @@
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R6"
-			(at 0 0 180)
-			(layer "B.Fab")
+			(at 0 -1.945 0)
+			(layer "B.SilkS")
 			(uuid "e83f24fc-9d32-4df9-a839-7a1b42f05c46")
 			(effects
 				(font
@@ -5755,8 +5757,8 @@
 		(descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing)")
 		(tags "capacitor")
 		(property "Reference" "C4"
-			(at 0 0 180)
-			(layer "B.Fab")
+			(at 0 1.975 0)
+			(layer "B.SilkS")
 			(uuid "2a91de1b-cd3a-4ae2-b6c5-7a534c177a42")
 			(effects
 				(font
@@ -5908,8 +5910,8 @@
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R5"
-			(at 0 0 180)
-			(layer "B.Fab")
+			(at -2.975 0 0)
+			(layer "B.SilkS")
 			(uuid "e691cddc-43fa-4bd7-aa4e-1cb694a46829")
 			(effects
 				(font

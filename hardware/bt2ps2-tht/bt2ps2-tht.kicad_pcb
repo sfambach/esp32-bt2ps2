@@ -89,7 +89,7 @@
 		(at 100 100)
 		(descr "Buchsenleisten fuer D1 mini ESP32 (MH-ET LIVE MiniKit): 4 Reihen x 10, Raster 2,54, innere Reihen 22,86 mm. Belegung bestaetigt am Pinout-Bild auf fambach.net. Umriss 39 x 32 mm laut Beitrag; Lage von Antenne und USB aus dem Foto geschaetzt (+/- 1 mm). Ohne Courtyard: das WROOM-32E (Variante B) liegt absichtlich darunter. Pin 1 voll an die Flaeche, weil die Antennen-Sperrflaeche die Stege abschneidet.")
 		(property "Reference" "U1"
-			(at 0 9 0)
+			(at 0 2.1143 0)
 			(layer "F.SilkS")
 			(uuid "865646a7-6401-4b0d-ad46-e055a14dbdcc")
 			(effects
@@ -591,8 +591,8 @@
 		(descr "CP, Radial series, Radial, pin pitch=2.00mm, diameter=5mm, height=7mm, Electrolytic Capacitor")
 		(tags "CP Radial series Radial pin pitch 2.00mm diameter 5mm height 7mm Electrolytic Capacitor")
 		(property "Reference" "C1"
-			(at 0 0 0)
-			(layer "F.Fab")
+			(at 1.001254 -3.742491 0)
+			(layer "F.SilkS")
 			(uuid "891c82ab-bc83-4fa6-899a-a5dc2f451204")
 			(effects
 				(font
@@ -1942,8 +1942,8 @@
 		(descr "C, Disc series, Radial, pin pitch=5.00mm, diameter*width=5*2.5mm^2, Capacitor, http://cdn-reichelt.de/documents/datenblatt/B300/DS_KERKO_TC.pdf")
 		(tags "C Disc series Radial pin pitch 5.00mm diameter 5mm width 2.5mm Capacitor")
 		(property "Reference" "C5"
-			(at 0 0 0)
-			(layer "F.Fab")
+			(at 2.5 -2.495 0)
+			(layer "F.SilkS")
 			(uuid "c45ce70a-2fe6-4451-a321-b0082262f02e")
 			(effects
 				(font
@@ -2131,7 +2131,7 @@
 		(descr "Through hole straight pin header, 1x02, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x02 2.54mm single row")
 		(property "Reference" "JP1"
-			(at 0 -2.38 0)
+			(at 0 5.314999 0)
 			(layer "F.SilkS")
 			(uuid "cd65ea11-1c8b-4964-aa42-8760d96183ba")
 			(effects
@@ -2361,6 +2361,7 @@
 		(property "Reference" "H1"
 			(at 0 0 0)
 			(layer "F.Fab")
+			(hide yes)
 			(uuid "3c7b6a57-b441-47e7-a6e9-6c0fa663d16c")
 			(effects
 				(font
@@ -2466,8 +2467,8 @@
 		(descr "TO-92 leads in-line, wide, drill 0.75mm (see NXP sot054_po.pdf)")
 		(tags "to-92 sc-43 sc-43a sot54 PA33 transistor")
 		(property "Reference" "Q2"
-			(at 0 0 0)
-			(layer "F.Fab")
+			(at 7.384999 -0.36 0)
+			(layer "F.SilkS")
 			(uuid "08ff5112-9d12-4d7c-bd80-14eb4a893148")
 			(effects
 				(font
@@ -2700,7 +2701,7 @@
 		(descr "Through hole straight pin header, 1x04, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x04 2.54mm single row")
 		(property "Reference" "J3"
-			(at 0 -2.38 0)
+			(at 0 10.384999 0)
 			(layer "F.SilkS")
 			(uuid "b1ede33c-7cb3-4aa9-91bf-a66983d356d2")
 			(effects
@@ -2946,7 +2947,7 @@
 		(descr "Generic 6mm SW tactile push button")
 		(tags "tact sw push 6mm")
 		(property "Reference" "SW1"
-			(at 3.25 -2 0)
+			(at 3.25 2.25 0)
 			(layer "F.SilkS")
 			(uuid "3b07c4f4-ba70-449e-902f-225bb2fe0086")
 			(effects
@@ -3284,7 +3285,7 @@
 		(descr "Resistor, Axial_DIN0207 series, Axial, Horizontal, pin pitch=7.62mm, 0.25W = 1/4W, length*diameter=6.3*2.5mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0207 series Axial Horizontal pin pitch 7.62mm 0.25W = 1/4W length 6.3mm diameter 2.5mm")
 		(property "Reference" "R4"
-			(at 3.81 0 0)
+			(at -2.345 0 0)
 			(layer "F.SilkS")
 			(uuid "7ab6a653-ae7e-4eaf-bc04-b0444fbd51b4")
 			(effects
@@ -3493,7 +3494,7 @@
 		(descr "Resistor, Axial_DIN0207 series, Axial, Horizontal, pin pitch=7.62mm, 0.25W = 1/4W, length*diameter=6.3*2.5mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0207 series Axial Horizontal pin pitch 7.62mm 0.25W = 1/4W length 6.3mm diameter 2.5mm")
 		(property "Reference" "R7"
-			(at 3.81 0 0)
+			(at 3.81 2.494999 0)
 			(layer "F.SilkS")
 			(uuid "1ade19cc-be9e-414a-adba-4c1589215299")
 			(effects
@@ -3704,6 +3705,7 @@
 		(property "Reference" "H2"
 			(at 0 0 0)
 			(layer "F.Fab")
+			(hide yes)
 			(uuid "215ea4c8-3607-4b23-ae15-5291787f1ca9")
 			(effects
 				(font
@@ -3809,7 +3811,7 @@
 		(descr "Resistor, Axial_DIN0207 series, Axial, Horizontal, pin pitch=7.62mm, 0.25W = 1/4W, length*diameter=6.3*2.5mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0207 series Axial Horizontal pin pitch 7.62mm 0.25W = 1/4W length 6.3mm diameter 2.5mm")
 		(property "Reference" "R5"
-			(at 3.81 0 0)
+			(at 3.81 -2.495 0)
 			(layer "F.SilkS")
 			(uuid "4c5c29a1-6fd1-48e1-bb39-f62d7d371bc1")
 			(effects
@@ -4018,7 +4020,7 @@
 		(descr "Resistor, Axial_DIN0207 series, Axial, Horizontal, pin pitch=7.62mm, 0.25W = 1/4W, length*diameter=6.3*2.5mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0207 series Axial Horizontal pin pitch 7.62mm 0.25W = 1/4W length 6.3mm diameter 2.5mm")
 		(property "Reference" "R6"
-			(at 3.81 0 0)
+			(at 3.81 -2.495 0)
 			(layer "F.SilkS")
 			(uuid "92af1c5f-bac9-46fc-a1e5-678a0f783c07")
 			(effects
@@ -4227,7 +4229,7 @@
 		(descr "Resistor, Axial_DIN0207 series, Axial, Horizontal, pin pitch=7.62mm, 0.25W = 1/4W, length*diameter=6.3*2.5mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0207 series Axial Horizontal pin pitch 7.62mm 0.25W = 1/4W length 6.3mm diameter 2.5mm")
 		(property "Reference" "R2"
-			(at 3.81 0 0)
+			(at 9.965 0 0)
 			(layer "F.SilkS")
 			(uuid "db2944fb-862a-4c46-9929-077cf91a3a14")
 			(effects
@@ -4436,7 +4438,7 @@
 		(descr "Generic 6mm SW tactile push button")
 		(tags "tact sw push 6mm")
 		(property "Reference" "SW2"
-			(at 3.25 -2 0)
+			(at 3.25 2.25 0)
 			(layer "F.SilkS")
 			(uuid "b80bb96e-bf5f-40e1-95fd-55aa8a99d0e4")
 			(effects
@@ -4774,8 +4776,8 @@
 		(descr "LED, diameter 3.0mm, 2 pins, generated by kicad-footprint-generator")
 		(tags "LED")
 		(property "Reference" "D1"
-			(at 0 0 0)
-			(layer "F.Fab")
+			(at 1.27 3.204999 0)
+			(layer "F.SilkS")
 			(uuid "df283a7a-9ac4-4104-a2b8-6d4fae908922")
 			(effects
 				(font
@@ -4994,8 +4996,8 @@
 		(descr "CP, Radial series, Radial, pin pitch=2.00mm, diameter=5mm, height=7mm, Electrolytic Capacitor")
 		(tags "CP Radial series Radial pin pitch 2.00mm diameter 5mm height 7mm Electrolytic Capacitor")
 		(property "Reference" "C2"
-			(at 0 0 0)
-			(layer "F.Fab")
+			(at 1.001254 -3.742491 0)
+			(layer "F.SilkS")
 			(uuid "79925901-793a-415e-8c7d-688c95bd09a4")
 			(effects
 				(font
@@ -6345,8 +6347,8 @@
 		(descr "JST XH series connector, B4B-XH-A (http://www.jst-mfg.com/product/pdf/eng/eXH.pdf)")
 		(tags "connector JST XH vertical")
 		(property "Reference" "J1"
-			(at 0 0 0)
-			(layer "F.Fab")
+			(at -4.245 0.525 0)
+			(layer "F.SilkS")
 			(uuid "c2e99f78-75db-427a-a49a-43c9e7f4746a")
 			(effects
 				(font
@@ -6638,8 +6640,8 @@
 		(descr "TO-220-3, Vertical, RM 2.54mm, see https://www.vishay.com/docs/66542/to-220-1.pdf")
 		(tags "TO-220-3 Vertical RM 2.54mm")
 		(property "Reference" "U3"
-			(at 0 0 0)
-			(layer "F.Fab")
+			(at 2.54 -4.395 0)
+			(layer "F.SilkS")
 			(uuid "7ba81559-d2dd-4022-8a3d-62b27add02a9")
 			(effects
 				(font
@@ -6876,8 +6878,8 @@
 		(descr "TO-92 leads in-line, wide, drill 0.75mm (see NXP sot054_po.pdf)")
 		(tags "to-92 sc-43 sc-43a sot54 PA33 transistor")
 		(property "Reference" "Q1"
-			(at 0 0 0)
-			(layer "F.Fab")
+			(at 7.384999 -0.360001 0)
+			(layer "F.SilkS")
 			(uuid "64c40fc5-4f94-40b7-860e-25cc6309760f")
 			(effects
 				(font
@@ -7110,7 +7112,7 @@
 		(descr "Resistor, Axial_DIN0207 series, Axial, Horizontal, pin pitch=7.62mm, 0.25W = 1/4W, length*diameter=6.3*2.5mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0207 series Axial Horizontal pin pitch 7.62mm 0.25W = 1/4W length 6.3mm diameter 2.5mm")
 		(property "Reference" "R1"
-			(at 3.81 0 0)
+			(at 9.965 0 0)
 			(layer "F.SilkS")
 			(uuid "570dfeb4-6536-421f-8d65-deb11af64746")
 			(effects
@@ -7319,8 +7321,8 @@
 		(descr "C, Disc series, Radial, pin pitch=5.00mm, diameter*width=5*2.5mm^2, Capacitor, http://cdn-reichelt.de/documents/datenblatt/B300/DS_KERKO_TC.pdf")
 		(tags "C Disc series Radial pin pitch 5.00mm diameter 5mm width 2.5mm Capacitor")
 		(property "Reference" "C3"
-			(at 0 0 0)
-			(layer "F.Fab")
+			(at 2.5 2.494999 0)
+			(layer "F.SilkS")
 			(uuid "f60109cc-72ed-420c-bdbe-967222cb09ba")
 			(effects
 				(font
@@ -7508,7 +7510,7 @@
 		(descr "Resistor, Axial_DIN0207 series, Axial, Horizontal, pin pitch=7.62mm, 0.25W = 1/4W, length*diameter=6.3*2.5mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
 		(tags "Resistor Axial_DIN0207 series Axial Horizontal pin pitch 7.62mm 0.25W = 1/4W length 6.3mm diameter 2.5mm")
 		(property "Reference" "R3"
-			(at 3.81 0 0)
+			(at -2.345 0 0)
 			(layer "F.SilkS")
 			(uuid "cbd9ee7a-69b0-43a6-9a09-9d719d6232ee")
 			(effects
@@ -7717,8 +7719,8 @@
 		(descr "C, Disc series, Radial, pin pitch=5.00mm, diameter*width=5*2.5mm^2, Capacitor, http://cdn-reichelt.de/documents/datenblatt/B300/DS_KERKO_TC.pdf")
 		(tags "C Disc series Radial pin pitch 5.00mm diameter 5mm width 2.5mm Capacitor")
 		(property "Reference" "C4"
-			(at 0 0 0)
-			(layer "F.Fab")
+			(at 2.5 -2.495 0)
+			(layer "F.SilkS")
 			(uuid "6dafc8c6-df49-4696-ae39-dc6b8bd48a6a")
 			(effects
 				(font
@@ -7906,8 +7908,8 @@
 		(descr "2.4 GHz Wi­-Fi and Bluetooth 5 (LE) module: https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32e_esp32-wroom-32ue_datasheet_en.pdf")
 		(tags "Bluetooth WiFi Wi-Fi ESP32 WROOM Xtensa LX6")
 		(property "Reference" "U2"
-			(at 0 0 90)
-			(layer "F.Fab")
+			(at 0 14.534999 0)
+			(layer "F.SilkS")
 			(uuid "56403545-ea98-43d3-8020-6bb752fb7398")
 			(effects
 				(font
