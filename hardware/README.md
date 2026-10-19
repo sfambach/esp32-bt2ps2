@@ -83,6 +83,12 @@ Both are 2-layer boards made for JLCPCB's standard process (1.6 mm, 1 oz, HASL).
   low PS/2 currents — try it on a breadboard first. A BS170 is *not* a drop-in replacement (different pinout).
 - The D1 mini footprint is based on [r0oland/ESP32_mini_KiCad_Library](https://github.com/r0oland/ESP32_mini_KiCad_Library)
   and was checked against the pinout of an actual board; the outline and antenna position are estimated (±1 mm).
+- **Planned for the next revision: reverse-protection diode in the PC 5 V path.** A Schottky diode (THT 1N5817,
+  SMD SS14) from J1 pin 1 to the board's +5 V, in series with JP1, so the board can stay on USB and on the PC at
+  the same time without feeding 5 V back into the keyboard port. The ~0.3 V drop is harmless for the 3.3 V regulator
+  and the PS/2 pull-ups. Variant B: a second diode in the J3 5 V input. Variant A: check whether the D1 mini has its
+  own diode between USB VBUS and its 5 V pin, otherwise the PC could still feed the USB host. Until then: pull JP1
+  while USB is connected.
 - The traces were laid out by a simple grid router and checked with KiCad's DRC — functional, not pretty.
 
 Designed by Stefan Fambach — [fambach.net](https://www.fambach.net). The hardware in this folder is licensed under the
