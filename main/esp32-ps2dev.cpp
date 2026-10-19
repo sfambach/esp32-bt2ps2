@@ -132,6 +132,7 @@ namespace esp32_ps2dev
   {
     unsigned char i;
     unsigned char parity = 1;
+    const unsigned char byte = data;
 
     if (get_bus_state() != BusState::IDLE)
     {
@@ -141,15 +142,29 @@ namespace esp32_ps2dev
     portMUX_TYPE mux = portMUX_INITIALIZER_UNLOCKED;
     taskENTER_CRITICAL(&mux);
 
-    golo(_ps2data);
-    delayMicroseconds(CLK_QUATER_PERIOD_MICROS);
-    // device sends on falling clock
-    golo(_ps2clk); // start bit
-    delayMicroseconds(CLK_HALF_PERIOD_MICROS);
-    gohi(_ps2clk);
-    delayMicroseconds(CLK_QUATER_PERIOD_MICROS);
+    // Clock one bit out. Before the 11th clock the host may abort the transfer by holding
+    // CLK low (e.g. an 8042 that gets a "disable keyboard" command from INT 9). A real keyboard
+    // detects that and retransmits the byte later, so do the same instead of losing it.
+    // CLK is sampled right before each falling edge (late in the high phase, so slow rise
+    // times on long cables do not look like an abort).
+    auto clock_bit = [&]() -> bool
+    {
+      delayMicroseconds(CLK_QUATER_PERIOD_MICROS);
+      if (digitalRead(_ps2clk) == LOW)
+      {
+        return false;
+      }
+      golo(_ps2clk);
+      delayMicroseconds(CLK_HALF_PERIOD_MICROS);
+      gohi(_ps2clk);
+      delayMicroseconds(CLK_QUATER_PERIOD_MICROS);
+      return true;
+    };
 
-    for (i = 0; i < 8; i++)
+    golo(_ps2data);
+    bool ok = clock_bit(); // start bit
+
+    for (i = 0; ok && i < 8; i++)
     {
       if (data & 0x01)
       {
@@ -159,40 +174,39 @@ namespace esp32_ps2dev
       {
         golo(_ps2data);
       }
-      delayMicroseconds(CLK_QUATER_PERIOD_MICROS);
-      golo(_ps2clk);
-      delayMicroseconds(CLK_HALF_PERIOD_MICROS);
-      gohi(_ps2clk);
-      delayMicroseconds(CLK_QUATER_PERIOD_MICROS);
+      ok = clock_bit();
 
       parity = parity ^ (data & 0x01);
       data = data >> 1;
     }
     // parity bit
-    if (parity)
+    if (ok)
     {
-      gohi(_ps2data);
+      if (parity)
+      {
+        gohi(_ps2data);
+      }
+      else
+      {
+        golo(_ps2data);
+      }
+      ok = clock_bit();
     }
-    else
-    {
-      golo(_ps2data);
-    }
-    delayMicroseconds(CLK_QUATER_PERIOD_MICROS);
-    golo(_ps2clk);
-    delayMicroseconds(CLK_HALF_PERIOD_MICROS);
-    gohi(_ps2clk);
-    delayMicroseconds(CLK_QUATER_PERIOD_MICROS);
-
     // stop bit
     gohi(_ps2data);
-    delayMicroseconds(CLK_QUATER_PERIOD_MICROS);
-    golo(_ps2clk);
-    delayMicroseconds(CLK_HALF_PERIOD_MICROS);
-    gohi(_ps2clk);
-    delayMicroseconds(CLK_QUATER_PERIOD_MICROS);
+    if (ok)
+    {
+      ok = clock_bit();
+    }
 
     taskEXIT_CRITICAL(&mux);
 
+    _last_write_aborted = !ok;
+    if (!ok)
+    {
+      return -2; // aborted by host, byte not delivered
+    }
+    _last_sent_byte = byte;
     return 0;
   }
   int PS2dev::write_wait_idle(uint8_t data, uint64_t timeout_micros)
@@ -801,7 +815,14 @@ namespace esp32_ps2dev
 #if defined(_ESP32_PS2DEV_DEBUG_)
       printf("PS2Keyboard::reply_to_host: Resend command received");
 #endif // _ESP32_PS2DEV_DEBUG_
-      ack();
+      // resend the last byte we sent (not an ACK), the host did not receive it correctly.
+      // If that byte was aborted by the host, the packet task retransmits it anyway.
+      if (!_last_write_aborted)
+      {
+        delayMicroseconds(BYTE_INTERVAL_MICROS);
+        while (write(_last_sent_byte) != 0)
+          delay(1);
+      }
       break;
     case Command::SET_DEFAULTS: // set defaults
 #if defined(_ESP32_PS2DEV_DEBUG_)
@@ -1318,10 +1339,34 @@ namespace esp32_ps2dev
       {
         xSemaphoreTake(ps2dev->get_bus_mutex_handle(), portMAX_DELAY);
         delayMicroseconds(BYTE_INTERVAL_MICROS);
-        for (int i = 0; i < packet.len; i++)
+        bool aborted = false;
+        for (int i = 0; i < packet.len && !aborted; i++)
         {
-          ps2dev->write_wait_idle(packet.data[i]);
-          delayMicroseconds(BYTE_INTERVAL_MICROS);
+          // Slow hosts (e.g. 8088 at 4.77 MHz with KEYB) inhibit the clock longer than
+          // write_wait_idle's timeout while processing a prefix byte like E0. Retry instead of
+          // silently dropping the rest of the packet (that turned E0 11 / AltGr into nothing,
+          // or lost break codes so modifiers got stuck).
+          uint64_t start_time = micros();
+          while (ps2dev->write_wait_idle(packet.data[i]) != 0)
+          {
+            if (ps2dev->get_bus_state() == PS2dev::BusState::HOST_REQUEST_TO_SEND)
+            {
+              // host has a command for us: let the host request task answer it, then
+              // retransmit the interrupted byte and the rest of the packet
+              xSemaphoreGive(ps2dev->get_bus_mutex_handle());
+              delay(INTERVAL_CHECKING_HOST_SEND_REQUEST_MILLIS * 2);
+              xSemaphoreTake(ps2dev->get_bus_mutex_handle(), portMAX_DELAY);
+              start_time = micros();
+              continue;
+            }
+            if (micros() - start_time > PACKET_BYTE_TIMEOUT_MICROS)
+            {
+              aborted = true; // bus stuck: give up this packet
+              break;
+            }
+            delay(1);
+          }
+          delayMicroseconds(PACKET_BYTE_GAP_MICROS);
         }
         xSemaphoreGive(ps2dev->get_bus_mutex_handle());
       }

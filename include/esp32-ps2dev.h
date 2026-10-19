@@ -27,6 +27,10 @@ namespace esp32_ps2dev
   // Based on observation of the mouse signal waveform using an oscilloscope, there appears to be an interval of 1 to 2 clock cycles.
   // ref. https://youtu.be/UqRDLWGLCEk
   const uint32_t BYTE_INTERVAL_MICROS = 500; // in v0.4 was OK: 500, change if not working and you know what you're doing.
+  // Gap between bytes of a key packet (HIDman uses ~1 ms), gives slow 8088/8042 hosts time to inhibit.
+  const uint32_t PACKET_BYTE_GAP_MICROS = 1000;
+  // Max time to keep retrying one byte of a packet while the host inhibits the clock.
+  const uint64_t PACKET_BYTE_TIMEOUT_MICROS = 100000;
   const int PACKET_QUEUE_LENGTH = 20;
   const UBaseType_t DEFAULT_TASK_PRIORITY = 10;
   //const BaseType_t DEFAULT_TASK_CORE = APP_CPU_NUM;
@@ -75,6 +79,8 @@ namespace esp32_ps2dev
     TaskHandle_t _task_send_packet;
     QueueHandle_t _queue_packet;
     SemaphoreHandle_t _mutex_bus;
+    uint8_t _last_sent_byte = 0xAA; // for answering RESEND
+    bool _last_write_aborted = false; // aborted byte is retransmitted by the packet task
     void golo(int pin);
     void gohi(int pin);
     void ack();
