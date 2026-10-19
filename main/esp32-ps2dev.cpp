@@ -1,4 +1,4 @@
-#include "..\include\esp32-ps2dev.h"
+#include "../include/esp32-ps2dev.h"
 #define NOP() asm volatile("nop")
 #define HIGH 0x1
 #define LOW 0x0
@@ -1554,6 +1554,9 @@ namespace esp32_ps2dev
     case 0x31:
       key = scancodes::Key::K_BACKSLASH;
       break;
+    case 0x32:  // ISO "#'" key (Non-US #): same PS/2 code as US backslash
+      key = scancodes::Key::K_BACKSLASH;
+      break;
     case 0x33:
       key = scancodes::Key::K_SEMICOLON;
       break;
@@ -1700,6 +1703,9 @@ namespace esp32_ps2dev
       break;
     case 0x63:
       key = scancodes::Key::K_KP_PERIOD;
+      break;
+    case 0x64:  // ISO "<>|" key (Non-US \)
+      key = scancodes::Key::K_EUROPE_2;
       break;
     case 0x65:
       key = scancodes::Key::K_MENU;
