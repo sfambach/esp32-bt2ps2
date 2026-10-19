@@ -115,6 +115,13 @@ Refer to the following link for more instructions:
 Once succesfully built and flashed, you're ready to rock! (your BLE keyboard on an ancient computer, that is).
 
 
+## Known problems (this fork)
+
+**Build fails with ESP-IDF 6.x.** The linker reports `undefined reference to 'esp_ble_gap_set_scan_params'`, `esp_ble_gap_start_scanning` and `esp_ble_resolve_adv_data`. ESP-IDF 6 no longer includes the legacy BLE scan API this firmware uses by default. Build with ESP-IDF v5.3.0 (in VS Code: "ESP-IDF: Configure ESP-IDF Extension" > Advanced, install v5.3 alongside), then run `idf.py fullclean build`.
+
+**`#` and `<>` missing on German/ISO keyboards.** The ISO keys Non-US # (HID 0x32) and Non-US \ (HID 0x64) had no PS/2 mapping and were dropped. Fixed in this fork (#2): 0x32 sends set-2 code 0x5D, 0x64 sends 0x61.
+
+
 # Usage and debugging
 
 Once powered up and first of all, the code will create and init an `esp32_ps2dev::PS2Keyboard` object, so it can start to talk to the computer as soon as possible. This is critical because during boot the BIOS can send different commands to the module to test the presence of the keyboard.
