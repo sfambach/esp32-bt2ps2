@@ -37,7 +37,7 @@ YouTube demo: https://youtu.be/2PVjWfAAJFE
 
 Tested Bluetooth Keyboards and Mice (Please add your own!): https://1drv.ms/x/s!AlKre4_rNmpJiYpl1v4KcbK1Pm77zA?e=0I6QRB
 
-Working under latest ESP-IDF v5.3.0 (not v5.3.3 or higher), compiled on Visual Studio Code. Multi-device support may not work on lower versions of the SDK.
+Builds with ESP-IDF v5.3.0 and v6.1.0 (both build-tested in this fork; v5.3.3 up to v5.x was reported NOT working upstream and is untested here), compiled on Visual Studio Code. Multi-device support may not work on lower versions of the SDK.
 
 **Developed and tested on the ESP32 DevKit rev 1 board, other variants may not work!**
 
@@ -88,7 +88,7 @@ Note: ESP32 is **unofficially** 5V tolerant, so you can directly connect PS/2 pi
 
 *Note there's a binary release available!
 
-Project works as-is under Visual Studio Code (2024). You need to have the Espressif IDF extension installed and the v5.3.0 of the ESP-IDF SDK. Workflow is as follows:
+Project works as-is under Visual Studio Code (2024). You need to have the Espressif IDF extension installed and ESP-IDF v5.3.0 or v6.1.0 (build-tested). Workflow is as follows:
 
 1- Install Visual Studio Code
 
@@ -100,7 +100,7 @@ Project works as-is under Visual Studio Code (2024). You need to have the Espres
 
 5- Execute command "ESP-IDF: Configure ESP-IDF extension"
 
-6- Select Express, and under "Select ESP-IDF version" choose v5.3.0 (As of 19/6/25 v5.3.3 or higher are NOT working!)
+6- Select Express, and under "Select ESP-IDF version" choose v5.3.0 or v6.1.0 (v5.3.3 up to v5.x reported NOT working upstream, untested here)
 
 7- After installation, select File > Open Folder and open the ESP32-BT2PS2 project folder
 
@@ -117,7 +117,7 @@ Once succesfully built and flashed, you're ready to rock! (your BLE keyboard on 
 
 ## Known problems (this fork)
 
-**Build fails with ESP-IDF 6.x.** The linker reports `undefined reference to 'esp_ble_gap_set_scan_params'`, `esp_ble_gap_start_scanning` and `esp_ble_resolve_adv_data`. ESP-IDF 6 no longer includes the legacy BLE scan API this firmware uses by default. Build with ESP-IDF v5.3.0 (in VS Code: "ESP-IDF: Configure ESP-IDF Extension" > Advanced, install v5.3 alongside), then run `idf.py fullclean build`.
+**Build failed with ESP-IDF 6.x (fixed).** The linker reported `undefined reference to 'esp_ble_gap_set_scan_params'`, `esp_ble_gap_start_scanning` and `esp_ble_resolve_adv_data`, because the old committed sdkconfig (from v5.3.0) had the legacy BLE 4.2 API disabled. `sdkconfig.defaults` now sets `CONFIG_BT_BLE_42_FEATURES_SUPPORTED=y` and `CONFIG_BT_BLE_42_SCAN_EN=y`, and `sdkconfig` was regenerated with v6.1.0. Build-tested with ESP-IDF v6.1.0 and v5.3.0 (`idf.py fullclean build`). Not yet tested on hardware with a v6.1 build.
 
 **`#` and `<>` missing on German/ISO keyboards.** The ISO keys Non-US # (HID 0x32) and Non-US \ (HID 0x64) had no PS/2 mapping and were dropped. Fixed in this fork (#2): 0x32 sends set-2 code 0x5D, 0x64 sends 0x61.
 
