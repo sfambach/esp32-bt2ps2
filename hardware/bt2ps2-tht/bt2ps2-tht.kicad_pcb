@@ -8812,6 +8812,17 @@
 			)
 		)
 	)
+	(gr_text "+"
+		(at 153.4 100.6 0)
+		(layer "F.SilkS")
+		(uuid "2bb1356e-2f41-4c42-a27e-b012853f39c3")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
 	(gr_text "bt2ps2 V1 THT"
 		(at 100 110 0)
 		(layer "B.SilkS")
