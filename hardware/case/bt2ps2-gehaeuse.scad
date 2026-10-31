@@ -52,11 +52,11 @@ iw  = ix1 - ix0;            ih  = iy1 - iy0;
 // ── Merkmale (Mitte der Courtyard-Felder aus KiCad) ────────────────────────────────────────────
 usb     = variante == "tht" ? [17.05, ph] : undef;   // SMD V2 hat keine USB-Buchse
 taster  = variante == "tht" ? [[58.30, 24.80], [68.80, 24.80]] : [[26.90, 26.70], [36.90, 26.70]];
-led     = variante == "tht" ? [67.60, 16.55] : [35.85, 2.35];
-led_d   = variante == "tht" ? 3.6 : 3.0;
+led     = variante == "tht" ? [67.60, 16.55] : [37.20, 2.65];   // SMD: leicht neben D1, damit Steg zu J3 bleibt
+led_d   = variante == "tht" ? 3.6 : 2.4;
 j1      = variante == "tht" ? [42.80, 5.08, 14.5, 8.0] : [45.27, 15.30, 8.0, 14.5];   // JST-Stecker: Kabel geht nach oben heraus
 jp1     = variante == "tht" ? [35.05, 12.30, 6.0, 9.0] : [39.35, 8.82, 6.0, 9.0];
-j3      = variante == "tht" ? [77.55, 25.35, 6.0, 13.5] : [27.86, 2.35, 13.0, 6.0];
+j3      = variante == "tht" ? [77.55, 25.35, 6.0, 13.5] : [27.40, 2.35, 15.5, 6.0];
 
 // Die zwei Montagelöcher der Platine — hier hält dieselbe Schraube Platine und Gehäuse zusammen
 platinen_loecher = variante == "tht" ? [[49.05, 16.05], [49.05, 28.05]] : [[45.55, 3.55], [45.55, 27.55]];

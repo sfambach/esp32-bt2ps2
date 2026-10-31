@@ -64,6 +64,9 @@ Both are 2-layer boards made for JLCPCB's standard process (1.6 mm, 1 oz, HASL).
 - **SMD board (always) / THT board variant B:** an ESP32-WROOM-32E soldered on, antenna over the board edge. Adds the
   3.3 V regulator, EN/BOOT circuitry, **BOOT** and **RESET** buttons, a status LED on IO2 and **J3** for a
   USB-serial adapter: `1 GND`, `2 ESP TXD → adapter RX`, `3 ESP RXD → adapter TX`, `4 +5V`.
+  SMD V2 adds `5 DTR` and `6 RTS` with the usual two-transistor auto-reset (Q3/Q4, R8/R9, as on the ESP32-DevKitC):
+  an adapter that brings out DTR and RTS flashes without pressing BOOT/RESET. A 4-wire adapter on pins 1–4 still works,
+  then hold BOOT, tap RESET, release BOOT. The THT board keeps the 4-pin J3.
   THT board: populate **either A or B**, never both.
 - IO25/IO26 are kept free for the mouse port (planned for version 2).
 

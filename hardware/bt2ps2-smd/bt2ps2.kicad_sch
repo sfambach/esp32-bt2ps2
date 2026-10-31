@@ -1,6 +1,510 @@
 (kicad_sch (version 20250610) (generator "eeschema") (generator_version "10.0") (uuid "3abb4b0c-75f6-4444-bc0f-d304ffe07696") (paper "A3")
 (title_block (title "ESP32 Bluetooth -> PS/2 Tastatur-Adapter") (date "2026-09-19") (rev "1") (comment 1 "Nach github.com/Hamberthm/esp32-bt2ps2 - Version 1: nur Tastatur") (comment 2 "Fertigung JLCPCB 2 Lagen - Regelsatz: Platinen/regeln/regelsatz-jlcpcb.md"))
 (lib_symbols
+	(symbol "Connector_Generic:Conn_01x06"
+		(pin_names
+			(offset 1.016)
+			(hide yes)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(duplicate_pin_numbers_are_jumpers no)
+		(property "Reference" "J"
+			(at 0 7.62 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Conn_01x06"
+			(at 0 -10.16 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_keywords" "connector"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_fp_filters" "Connector*:*_1x??_*"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "Conn_01x06_1_1"
+			(rectangle
+				(start -1.27 6.35)
+				(end 1.27 -8.89)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type background)
+				)
+			)
+			(rectangle
+				(start -1.27 5.207)
+				(end 0 4.953)
+				(stroke
+					(width 0.1524)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(rectangle
+				(start -1.27 2.667)
+				(end 0 2.413)
+				(stroke
+					(width 0.1524)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(rectangle
+				(start -1.27 0.127)
+				(end 0 -0.127)
+				(stroke
+					(width 0.1524)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(rectangle
+				(start -1.27 -2.413)
+				(end 0 -2.667)
+				(stroke
+					(width 0.1524)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(rectangle
+				(start -1.27 -4.953)
+				(end 0 -5.207)
+				(stroke
+					(width 0.1524)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(rectangle
+				(start -1.27 -7.493)
+				(end 0 -7.747)
+				(stroke
+					(width 0.1524)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(pin passive line
+				(at -5.08 5.08 0)
+				(length 3.81)
+				(name "Pin_1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at -5.08 2.54 0)
+				(length 3.81)
+				(name "Pin_2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at -5.08 0 0)
+				(length 3.81)
+				(name "Pin_3"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "3"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at -5.08 -2.54 0)
+				(length 3.81)
+				(name "Pin_4"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "4"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at -5.08 -5.08 0)
+				(length 3.81)
+				(name "Pin_5"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "5"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at -5.08 -7.62 0)
+				(length 3.81)
+				(name "Pin_6"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "6"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+		(embedded_fonts no)
+	)
+	(symbol "Transistor_BJT:Q_NPN_BEC"
+		(pin_names
+			(offset 0)
+			(hide yes)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(duplicate_pin_numbers_are_jumpers no)
+		(property "Reference" "Q"
+			(at 5.08 1.27 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Q_NPN_BEC"
+			(at 5.08 -1.27 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 5.08 2.54 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "NPN transistor, base/emitter/collector"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Device" "NPN"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Pins" "1=B 2=E 3=C"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_keywords" "BJT"
+			(at 0 0 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "Q_NPN_BEC_0_1"
+			(polyline
+				(pts
+					(xy -2.54 0) (xy 0.635 0)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 0.635 1.905) (xy 0.635 -1.905)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(circle
+				(center 1.27 0)
+				(radius 2.8194)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "Q_NPN_BEC_1_1"
+			(polyline
+				(pts
+					(xy 0.635 0.635) (xy 2.54 2.54)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 0.635 -0.635) (xy 2.54 -2.54)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 1.27 -1.778) (xy 1.778 -1.27) (xy 2.286 -2.286) (xy 1.27 -1.778)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type outline)
+				)
+			)
+			(pin input line
+				(at -5.08 0 0)
+				(length 2.54)
+				(name "B"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 2.54 -5.08 90)
+				(length 2.54)
+				(name "E"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 2.54 5.08 270)
+				(length 2.54)
+				(name "C"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "3"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+		(embedded_fonts no)
+	)
+
 (symbol "bt2ps2:D1_mini_ESP32"
 (pin_names (offset 1.016))
 (exclude_from_sim no) (in_bom yes) (on_board yes)
@@ -3345,10 +3849,10 @@
   (property "Footprint" "" (at 248.92 153.67 0) (effects (font (size 1.27 1.27)) (hide yes)))
   (property "Datasheet" "" (at 248.92 153.67 0) (effects (font (size 1.27 1.27)) (hide yes)))
   (instances (project "bt2ps2" (path "/3abb4b0c-75f6-4444-bc0f-d304ffe07696" (reference "#PWR037") (unit 1)))))
-(symbol (lib_id "Connector_Generic:Conn_01x04") (at 340.36 177.8 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no) (uuid "9899d2c5-e0d6-48c1-bb7c-9c37d128c3c0")
-  (property "Reference" "J3" (at 344.17 176.53 0) (effects (font (size 1.27 1.27)) (justify left)))
-  (property "Value" "Programmer" (at 344.17 179.07 0) (effects (font (size 1.27 1.27)) (justify left)))
-  (property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical" (at 340.36 177.8 0) (effects (font (size 1.27 1.27)) (hide yes)))
+(symbol (lib_id "Connector_Generic:Conn_01x06") (at 340.36 180.34 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no) (uuid "9899d2c5-e0d6-48c1-bb7c-9c37d128c3c0")
+  (property "Reference" "J3" (at 344.17 179.07 0) (effects (font (size 1.27 1.27)) (justify left)))
+  (property "Value" "Programmer" (at 344.17 181.61 0) (effects (font (size 1.27 1.27)) (justify left)))
+  (property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical" (at 340.36 180.34 0) (effects (font (size 1.27 1.27)) (hide yes)))
   (property "Datasheet" "" (at 340.36 177.8 0) (effects (font (size 1.27 1.27)) (hide yes)))
   (instances (project "bt2ps2" (path "/3abb4b0c-75f6-4444-bc0f-d304ffe07696" (reference "J3") (unit 1)))))
 (wire (pts (xy 335.28 175.26) (xy 332.74 175.26)) (stroke (width 0) (type default)) (uuid "f0944951-ab4f-49aa-9011-e46559065a88"))
@@ -3365,7 +3869,7 @@
   (property "Footprint" "" (at 332.74 182.88 0) (effects (font (size 1.27 1.27)) (hide yes)))
   (property "Datasheet" "" (at 332.74 182.88 0) (effects (font (size 1.27 1.27)) (hide yes)))
   (instances (project "bt2ps2" (path "/3abb4b0c-75f6-4444-bc0f-d304ffe07696" (reference "#PWR039") (unit 1)))))
-(text "J3: 1 GND, 2 ESP_TXD -> RX des Adapters,\n3 ESP_RXD -> TX des Adapters, 4 +5V vom Adapter (JP1 ziehen!)" (exclude_from_sim no) (at 292.1 200.66 0) (effects (font (size 1.27 1.27)) (justify left top)) (uuid "5292a48d-a9d7-4373-85b4-7001dd8981ab"))
+(text "J3: 1 GND, 2 ESP_TXD -> RX des Adapters,\n3 ESP_RXD -> TX des Adapters, 4 +5V vom Adapter (JP1 ziehen!),\n5 DTR, 6 RTS vom Adapter: Auto-Reset wie beim ESP32-DevKitC (Q3, Q4).\nOhne DTR/RTS weiter von Hand mit BOOT und RESET." (exclude_from_sim no) (at 292.1 200.66 0) (effects (font (size 1.27 1.27)) (justify left top)) (uuid "5292a48d-a9d7-4373-85b4-7001dd8981ab"))
 (text "LED an IO2 wie beim DevKit: Firmware meldet Status darueber." (exclude_from_sim no) (at 292.1 193.04 0) (effects (font (size 1.27 1.27)) (justify left top)) (uuid "6be0a74e-a6d7-47e7-8627-2726b4a5044d"))
 (symbol (lib_id "Mechanical:MountingHole") (at 360.68 25.4 0) (unit 1) (exclude_from_sim no) (in_bom no) (on_board yes) (dnp no) (uuid "feec6ff1-b574-4ec3-88b7-cd9a049fb976")
   (property "Reference" "H1" (at 364.49 24.13 0) (effects (font (size 1.27 1.27)) (justify left)))
@@ -3416,4 +3920,46 @@
 (label "LED_A" (at 304.8 161.29 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "c9c4eb4d-b09f-4da2-bc0a-a732fa8fb0f5"))
 (sheet_instances (path "/" (page "1")))
 (embedded_fonts no)
+(wire (pts (xy 335.28 185.42) (xy 325.12 185.42)) (stroke (width 0) (type default)) (uuid "acfd1c3c-fc5a-41b4-9c0e-82f7d308f7db"))
+(label "DTR" (at 325.12 185.42 0) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "1d6bac3f-efc5-472b-9b24-de193785c6cc"))
+(wire (pts (xy 335.28 187.96) (xy 325.12 187.96)) (stroke (width 0) (type default)) (uuid "e3851b2e-f110-44ce-b5e5-a6c6afcc7dea"))
+(label "RTS" (at 325.12 187.96 0) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "0dbefc46-364d-422d-83c0-c3405e5f25b1"))
+(symbol (lib_id "Transistor_BJT:Q_NPN_BEC") (at 320.04 220.98 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no) (uuid "707a6483-8a0c-41af-97de-4f5a4b0389b1")
+  (property "Reference" "Q3" (at 325.12 219.71 0) (effects (font (size 1.27 1.27)) (justify left)))
+  (property "Value" "MMBT3904" (at 325.12 222.25 0) (effects (font (size 1.27 1.27)) (justify left)))
+  (property "Footprint" "Package_TO_SOT_SMD:SOT-23" (at 320.04 220.98 0) (effects (font (size 1.27 1.27)) (hide yes)))
+  (property "Datasheet" "" (at 320.04 220.98 0) (effects (font (size 1.27 1.27)) (hide yes)))
+  (instances (project "bt2ps2" (path "/3abb4b0c-75f6-4444-bc0f-d304ffe07696" (reference "Q3") (unit 1)))))
+(symbol (lib_id "Device:R") (at 307.34 220.98 90) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no) (uuid "4fe189a7-4b0b-4751-8362-717a313352e8")
+  (property "Reference" "R8" (at 305 215.98 0) (effects (font (size 1.27 1.27)) (justify left)))
+  (property "Value" "10k" (at 305 218.52 0) (effects (font (size 1.27 1.27)) (justify left)))
+  (property "Footprint" "Resistor_SMD:R_0805_2012Metric" (at 307.34 220.98 0) (effects (font (size 1.27 1.27)) (hide yes)))
+  (property "Datasheet" "" (at 307.34 220.98 0) (effects (font (size 1.27 1.27)) (hide yes)))
+  (instances (project "bt2ps2" (path "/3abb4b0c-75f6-4444-bc0f-d304ffe07696" (reference "R8") (unit 1)))))
+(wire (pts (xy 311.15 220.98) (xy 314.96 220.98)) (stroke (width 0) (type default)) (uuid "c8e34eab-0a7f-47b5-ba15-226b6b923a5d"))
+(wire (pts (xy 303.53 220.98) (xy 300.99 220.98)) (stroke (width 0) (type default)) (uuid "ed2b1240-d22b-4976-9fe7-13ace98244cb"))
+(label "DTR" (at 300.99 220.98 0) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "fa53506d-4251-4ef5-ab5d-b4e49ce70563"))
+(wire (pts (xy 322.58 215.9) (xy 322.58 213.36)) (stroke (width 0) (type default)) (uuid "975f9c50-5719-4cee-a617-53f3b60079ea"))
+(label "EN" (at 322.58 213.36 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "e359d200-feef-4c45-ad17-1b366d9901eb"))
+(wire (pts (xy 322.58 226.06) (xy 322.58 228.6)) (stroke (width 0) (type default)) (uuid "1edb771f-1a5e-4a22-a17d-4fa3b97fd71c"))
+(label "RTS" (at 322.58 228.6 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "7d5679e6-da63-4e53-8fc7-cf63d18f55f1"))
+(symbol (lib_id "Transistor_BJT:Q_NPN_BEC") (at 320.04 241.3 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no) (uuid "3e6b1c14-18c8-425a-b17a-89ded651adc8")
+  (property "Reference" "Q4" (at 325.12 240.03 0) (effects (font (size 1.27 1.27)) (justify left)))
+  (property "Value" "MMBT3904" (at 325.12 242.57 0) (effects (font (size 1.27 1.27)) (justify left)))
+  (property "Footprint" "Package_TO_SOT_SMD:SOT-23" (at 320.04 241.3 0) (effects (font (size 1.27 1.27)) (hide yes)))
+  (property "Datasheet" "" (at 320.04 241.3 0) (effects (font (size 1.27 1.27)) (hide yes)))
+  (instances (project "bt2ps2" (path "/3abb4b0c-75f6-4444-bc0f-d304ffe07696" (reference "Q4") (unit 1)))))
+(symbol (lib_id "Device:R") (at 307.34 241.3 90) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no) (uuid "447155cd-0308-4ec1-b8f7-56061339a7be")
+  (property "Reference" "R9" (at 305 236.3 0) (effects (font (size 1.27 1.27)) (justify left)))
+  (property "Value" "10k" (at 305 238.84 0) (effects (font (size 1.27 1.27)) (justify left)))
+  (property "Footprint" "Resistor_SMD:R_0805_2012Metric" (at 307.34 241.3 0) (effects (font (size 1.27 1.27)) (hide yes)))
+  (property "Datasheet" "" (at 307.34 241.3 0) (effects (font (size 1.27 1.27)) (hide yes)))
+  (instances (project "bt2ps2" (path "/3abb4b0c-75f6-4444-bc0f-d304ffe07696" (reference "R9") (unit 1)))))
+(wire (pts (xy 311.15 241.3) (xy 314.96 241.3)) (stroke (width 0) (type default)) (uuid "8ff5abe6-714e-4ce9-aa0f-b252b8e98005"))
+(wire (pts (xy 303.53 241.3) (xy 300.99 241.3)) (stroke (width 0) (type default)) (uuid "91a02f46-40dc-42be-ba52-d5ca840c736a"))
+(label "RTS" (at 300.99 241.3 0) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "0579321e-af50-4a6f-b7d4-e005d8868f24"))
+(wire (pts (xy 322.58 236.22) (xy 322.58 233.68)) (stroke (width 0) (type default)) (uuid "1038daf9-eae8-449f-979e-3ca956ad2d66"))
+(label "BOOT" (at 322.58 233.68 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "d8e8c222-08ac-4e3f-a3e5-9972cc4fe647"))
+(wire (pts (xy 322.58 246.38) (xy 322.58 248.92)) (stroke (width 0) (type default)) (uuid "d5425b78-adaf-40a2-929f-b3aa3f89f1b0"))
+(label "DTR" (at 322.58 248.92 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "cfe9ef5b-ef36-4503-af82-ae5bce64360c"))
 )
