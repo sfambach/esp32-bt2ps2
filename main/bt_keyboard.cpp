@@ -913,7 +913,7 @@ BTKeyboard::esp_hid_scan(uint32_t seconds, size_t *num_results, esp_hid_scan_res
     return ESP_FAIL;
   }
 
-  if (enable_bt_classic)
+  if (enable_bt_classic && !scanStoppedEarly) // bonded BLE keyboard already found: skip the BT Classic inquiry
   {
     if (start_bt_scan(seconds) == ESP_OK)
     {
@@ -973,9 +973,11 @@ bool BTKeyboard::devices_scan(int seconds_wait_time)
   {
     ESP_LOGI(TAG, "Last bonded device: " ESP_BD_ADDR_STR, ESP_BD_ADDR_HEX(dev_list[0].bd_addr)); // last one is number 0 (as of ESP v5.0.1)
   }
-  // start scan for HID devices
+  // start scan for HID devices (startup pairing scan reconnects a bonded keyboard as soon as it advertises, too)
 
+  stopScanOnBonded = numBonded > 0;
   esp_hid_scan(seconds_wait_time, &results_len, &results);
+  stopScanOnBonded = false;
   ESP_LOGV(TAG, "SCAN: %u results", results_len);
 
   // check if last bonded device is present
