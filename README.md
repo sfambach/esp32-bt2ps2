@@ -123,6 +123,8 @@ Once succesfully built and flashed, you're ready to rock! (your BLE keyboard on 
 
 **`#` and `<>` missing on German/ISO keyboards.** The ISO keys Non-US # (HID 0x32) and Non-US \ (HID 0x64) had no PS/2 mapping and were dropped. Fixed in this fork (#2): 0x32 sends set-2 code 0x5D, 0x64 sends 0x61.
 
+**Slow BLE reconnect (fix under test).** After the keyboard woke up or came back in range it took several seconds to type again. The BLE connection daemon always ran its full 5 s scan before looking for the bonded keyboard, and every reconnect re-read the keyboard's GATT database (`CONFIG_BT_GATTC_CACHE_NVS_FLASH` was off). Now the daemon stops the scan as soon as a bonded device advertises and connects right away, and the GATT cache is on. Not yet confirmed on hardware.
+
 
 # Usage and debugging
 

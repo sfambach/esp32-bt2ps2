@@ -60,6 +60,8 @@ const char BTKeyboard::shift_trans_dict[] =
 
 static BTKeyboard *bt_keyboard = nullptr;
 bool BTKeyboard::isConnected = false;
+volatile bool BTKeyboard::stopScanOnBonded = false;
+volatile bool BTKeyboard::scanStoppedEarly = false;
 bool BTKeyboard::btFound = false;
 BTKeyboard::esp_hid_scan_result_t BTKeyboard::lastConnected;
 
@@ -727,6 +729,14 @@ void BTKeyboard::handle_ble_device_result(esp_ble_gap_cb_param_t *param)
                         param->scan_rst.rssi);
   }
 
+  // Reconnect: don't wait for the rest of the scan window once the bonded keyboard is advertising
+  if (isLastBonded && stopScanOnBonded && !scanStoppedEarly)
+  {
+    scanStoppedEarly = true;
+    ESP_LOGI(TAG, "Bonded device " ESP_BD_ADDR_STR " advertising, stopping scan early", ESP_BD_ADDR_HEX(param->scan_rst.bda));
+    esp_ble_gap_stop_scanning();
+  }
+
 #endif
 
   free(dev_list);
@@ -766,6 +776,8 @@ void BTKeyboard::ble_gap_event_handler(esp_gap_ble_cb_event_t event, esp_ble_gap
   case ESP_GAP_BLE_SCAN_STOP_COMPLETE_EVT:
   {
     ESP_LOGV(TAG, "BLE GAP EVENT SCAN CANCELED");
+    if (scanStoppedEarly)
+      SEND_BLE_CB(); // a stopped scan sends no INQ_CMPL, release esp_hid_scan here
     break;
   }
 
@@ -866,6 +878,8 @@ BTKeyboard::start_ble_scan(uint32_t seconds)
   };
 
   esp_err_t ret = ESP_OK;
+  xSemaphoreTake(ble_hidh_cb_semaphore, 0); // drop a stale give (stop and scan end can race)
+  scanStoppedEarly = false;
   if ((ret = esp_ble_gap_set_scan_params(&hid_scan_params)) != ESP_OK)
   {
     ESP_LOGE(TAG, "esp_ble_gap_set_scan_params failed: %d", ret);
@@ -1114,7 +1128,9 @@ bool BTKeyboard::devices_scan_ble_daemon(int seconds_wait_time)
   }
   // start scan for HID devices
 
+  stopScanOnBonded = true;
   esp_hid_scan(seconds_wait_time, &results_len, &results, false);
+  stopScanOnBonded = false;
   ESP_LOGV(TAG, "SCAN: %u results", results_len);
 
   // check if last bonded device is present

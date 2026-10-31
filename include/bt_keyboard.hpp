@@ -353,4 +353,6 @@ public:
 
   static bool isConnected; // hidh callback event CLOSE turns this false when kb disconnects
   static bool btFound;     // found a BT (not BLE) device during scan, let's wait for pairing
+  static volatile bool stopScanOnBonded; // daemon: end the BLE scan as soon as a bonded device advertises
+  static volatile bool scanStoppedEarly;
 };

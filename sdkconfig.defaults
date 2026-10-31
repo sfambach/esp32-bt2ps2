@@ -25,3 +25,6 @@ CONFIG_PARTITION_TABLE_MD5=y
 # BLE 4.2 (legacy) scan API used by bt_keyboard.cpp; ESP-IDF >= 6.x needs this explicitly
 CONFIG_BT_BLE_42_FEATURES_SUPPORTED=y
 CONFIG_BT_BLE_42_SCAN_EN=y
+
+# Cache the keyboard's GATT database in NVS so a reconnect skips service discovery
+CONFIG_BT_GATTC_CACHE_NVS_FLASH=y
