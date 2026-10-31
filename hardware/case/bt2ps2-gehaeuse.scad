@@ -19,7 +19,7 @@ teil     = "unterteil";  // "unterteil", "oberteil" oder "beides"
 $fn = 48;
 
 // ── Platinen ───────────────────────────────────────────────────────────────────────────────────
-smd = [61.1, 34.2];      // Breite, Höhe der Platine
+smd = [49.1, 31.1];      // Breite, Höhe der Platine (V2)
 tht = [83.1, 34.2];
 platine = variante == "tht" ? tht : smd;
 pb = platine[0];
@@ -33,9 +33,10 @@ stuetze  = 4.0;    // Platine über dem Boden (Platz für Lötstellen und Teile 
 dicke    = 1.6;    // Platinendicke
 innen_h  = 15.0;   // Luft über der Platine (höchstes Teil: USB-Buchse des D1 mini, 12,1 mm)
 
-oben_frei  = 7.0;  // Überstand der Antenne über die Platinenkante
-unten_frei = 4.6;  // Überstand des D1 mini mit der USB-Buchse
-links_frei = 6.0;  // Streifen neben der Platine für die zwei linken Schraubsäulen
+// SMD V2: kein D1 mini mehr, das WROOM liegt quer, die Antenne ragt links 5,75 mm über die Platine.
+oben_frei  = variante == "tht" ? 7.0 : 3.0;  // THT: Überstand der Antenne über die Platinenkante
+unten_frei = variante == "tht" ? 4.6 : 3.0;  // THT: Überstand des D1 mini mit der USB-Buchse
+links_frei = variante == "tht" ? 6.0 : 7.5;  // Streifen links: Schraubsäulen (SMD: dazu die Antenne)
 
 // Höhen über dem Boden (Aussenkante Unterteil = 0)
 pl_u   = boden + stuetze;                 // Unterkante Platine   = 6,0
@@ -49,21 +50,21 @@ iy0 = -oben_frei;           iy1 = ph + unten_frei;
 iw  = ix1 - ix0;            ih  = iy1 - iy0;
 
 // ── Merkmale (Mitte der Courtyard-Felder aus KiCad) ────────────────────────────────────────────
-usb     = [17.05, ph];
-taster  = variante == "tht" ? [[58.30, 24.80], [68.80, 24.80]] : [[37.80, 23.80], [47.80, 23.80]];
-led     = variante == "tht" ? [67.60, 16.55] : [47.55, 31.55];
+usb     = variante == "tht" ? [17.05, ph] : undef;   // SMD V2 hat keine USB-Buchse
+taster  = variante == "tht" ? [[58.30, 24.80], [68.80, 24.80]] : [[26.90, 26.70], [36.90, 26.70]];
+led     = variante == "tht" ? [67.60, 16.55] : [35.85, 2.35];
 led_d   = variante == "tht" ? 3.6 : 3.0;
-j1      = [42.80, 5.08, 14.5, 8.0];       // JST-Stecker: Kabel geht nach oben heraus
-jp1     = variante == "tht" ? [35.05, 12.30, 6.0, 9.0] : [35.55, 13.30, 6.0, 9.0];
-j3      = variante == "tht" ? [77.55, 25.35, 6.0, 13.5] : [39.35, 31.55, 13.0, 6.0];
+j1      = variante == "tht" ? [42.80, 5.08, 14.5, 8.0] : [45.27, 15.30, 8.0, 14.5];   // JST-Stecker: Kabel geht nach oben heraus
+jp1     = variante == "tht" ? [35.05, 12.30, 6.0, 9.0] : [39.35, 8.82, 6.0, 9.0];
+j3      = variante == "tht" ? [77.55, 25.35, 6.0, 13.5] : [27.86, 2.35, 13.0, 6.0];
 
 // Die zwei Montagelöcher der Platine — hier hält dieselbe Schraube Platine und Gehäuse zusammen
-platinen_loecher = variante == "tht" ? [[49.05, 16.05], [49.05, 28.05]] : [[57.55, 4.55], [57.55, 30.15]];
+platinen_loecher = variante == "tht" ? [[49.05, 16.05], [49.05, 28.05]] : [[45.55, 3.55], [45.55, 27.55]];
 // Die zwei übrigen Schrauben stehen im linken Streifen, wo das Modul nicht hinreicht
 rand_loecher = [[ix0 + 3.4, iy0 + 3.6], [ix0 + 3.4, iy1 - 3.6]];
 schrauben = concat(platinen_loecher, rand_loecher);
 // Auflager ohne Schraube, damit die Platine nicht kippt
-auflager = variante == "tht" ? [[3.0, 3.0], [3.0, 31.0], [78.0, 3.0], [78.0, 31.0]] : [[3.0, 3.0], [3.0, 31.0]];
+auflager = variante == "tht" ? [[3.0, 3.0], [3.0, 31.0], [78.0, 3.0], [78.0, 31.0]] : [[3.0, 3.0], [3.0, 28.0]];
 
 dom_d  = 6.4;    // Aussendurchmesser der Säulen
 durch  = 3.4;    // Durchgangsloch M3
@@ -113,7 +114,7 @@ module oberteil() {
             difference() {
                 translate([0, 0, 0]) schale(hoehe);
                 hohlraum(-1, hoehe - deckel_d);
-                translate([0, 0, -dz]) usb_loch();
+                if (variante == "tht") translate([0, 0, -dz]) usb_loch();
             }
             // Rand, der in das Unterteil greift
             translate([ix0 + 0.3, iy0 + 0.3, -1.5]) difference() {

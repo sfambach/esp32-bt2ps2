@@ -11,6 +11,5 @@
 "R7","1k","Resistor_SMD:R_0805_2012Metric","1"
 "SW1","BOOT","Button_Switch_THT:SW_PUSH_6mm","1"
 "SW2","RESET","Button_Switch_THT:SW_PUSH_6mm","1"
-"U1","D1_mini_ESP32","bt2ps2:D1_mini_ESP32_Sockel","1"
 "U2","ESP32-WROOM-32E-N4","RF_Module:ESP32-WROOM-32E","1"
 "U3","AP2112K-3.3","Package_TO_SOT_SMD:SOT-23-5","1"

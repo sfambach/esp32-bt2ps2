@@ -4,13 +4,15 @@ One OpenSCAD file, two enclosures (SMD and THT board). Each is **split horizonta
 
 | | SMD board | THT board |
 |---|---|---|
-| Assembled, outer | 72.3 × 49.8 × 24.6 mm | 94.3 × 49.8 × 24.6 mm |
+| Assembled, outer | 61.8 × 41.1 × 24.6 mm (board V2) | 94.3 × 49.8 × 24.6 mm |
 | Bottom / top | 12.0 mm / 12.6 mm tall | same |
 | STL | `bt2ps2-smd-unterteil.stl` (bottom), `bt2ps2-smd-oberteil.stl` (top) | `bt2ps2-tht-unterteil.stl`, `bt2ps2-tht-oberteil.stl` |
 
 ![SMD enclosure](vorschau-smd.png)
 
-The box is larger than the board because the ESP32 module sticks out at both ends: the antenna (7 mm of air, no
+**SMD board V2:** no USB socket any more; the box is wider on the left for the WROOM antenna (5.75 mm over the board edge, no screw underneath).
+
+THT board: the box is larger than the board because the ESP32 module sticks out at both ends: the antenna (7 mm of air, no
 copper and no screw underneath) and the D1 mini's USB socket (4.6 mm).
 
 **How it holds together:** four M3 screws, all from below. They pass through the bottom tray into columns that hang

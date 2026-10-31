@@ -14,9 +14,9 @@ defaults (`KB_CLK_PIN = 22`, `KB_DATA_PIN = 23`), so the firmware runs unchanged
 |---|---|---|
 | ESP32 | ESP32-WROOM-32E soldered on (V2; V1 also took a D1 mini ESP32) | **A:** D1 mini ESP32 plugged in, **or B:** ESP32-WROOM-32E soldered on |
 | Level shifter 5 V ↔ 3.3 V | 2 × BSS138 (SOT-23) + 10 kΩ | 2 × 2N7000 (TO-92) + 10 kΩ |
-| 3.3 V regulator (variant B only) | AP2112K-3.3 | LD1117V33 (TO-220) |
+| 3.3 V regulator (THT: variant B only) | AP2112K-3.3 | LD1117V33 (TO-220) |
 | Passives | 0805 | through-hole (the WROOM is the only SMD part) |
-| Size | 49.0 × 30.0 mm (V2; V1: 61.0 × 34.1 mm) | 83.0 × 34.1 mm |
+| Size | 49.0 × 31.0 mm (V2; V1: 61.0 × 34.1 mm) | 83.0 × 34.1 mm |
 
 Both are 2-layer boards made for JLCPCB's standard process (1.6 mm, 1 oz, HASL). Designed with **KiCad 10**.
 
@@ -25,9 +25,9 @@ Both are 2-layer boards made for JLCPCB's standard process (1.6 mm, 1 oz, HASL).
 
 ## SMD board
 
-> 🚧 **V2 in progress (2026-10-31):** the D1 mini socket is gone, the WROOM is rotated 90° (antenna to the left),
-> all parts are on the front and the board shrank to 49 × 30 mm. **Parts are placed, the board is not routed yet.**
-> The pictures, Gerbers and the enclosure below still show V1.
+> **V2 (2026-10-31):** the D1 mini socket is gone, the WROOM is rotated 90° (antenna over the left edge), all parts
+> are on the front and the board shrank from 61 × 34 mm to 49 × 31 mm. Routed with Freerouting (45° traces, no traces
+> under the module on the top layer), DRC clean. **Not manufactured yet.** V1 is in git history and release v0.1.
 
 ![SMD board, 3D view](bt2ps2-smd/bt2ps2-3d.png)
 
@@ -58,13 +58,13 @@ Both are 2-layer boards made for JLCPCB's standard process (1.6 mm, 1 oz, HASL).
   Pinouts as commonly documented — **measure your plug before use.**
 - **JP1 – 5 V from the PC.** Pull the jumper while the board is powered over USB (or J3), otherwise 5 V is fed back
   into the PC's keyboard port — the same warning as in the main README.
-- **Variant A (default):** a *D1 mini ESP32* (MH-ET LIVE MiniKit / "D1 mini ESP32 ESP-WROOM-32", 4 rows of pins,
+- **THT board, variant A (default):** a *D1 mini ESP32* (MH-ET LIVE MiniKit / "D1 mini ESP32 ESP-WROOM-32", 4 rows of pins,
   39 × 32 mm) on female headers. Programming via its own USB port. Its USB end is flush with the board edge,
   its antenna overhangs the opposite edge.
-- **Variant B:** an ESP32-WROOM-32E soldered between the inner header rows, antenna over the board edge. Adds the
+- **SMD board (always) / THT board variant B:** an ESP32-WROOM-32E soldered on, antenna over the board edge. Adds the
   3.3 V regulator, EN/BOOT circuitry, **BOOT** and **RESET** buttons, a status LED on IO2 and **J3** for a
   USB-serial adapter: `1 GND`, `2 ESP TXD → adapter RX`, `3 ESP RXD → adapter TX`, `4 +5V`.
-  Populate **either A or B**, never both.
+  THT board: populate **either A or B**, never both.
 - IO25/IO26 are kept free for the mouse port (planned for version 2).
 
 ## Files per board
@@ -76,8 +76,8 @@ Both are 2-layer boards made for JLCPCB's standard process (1.6 mm, 1 oz, HASL).
 | `*.kicad_sym`, `*.pretty/` | symbol and footprint of the D1 mini ESP32 socket |
 | `*-schaltplan.pdf` / `.svg` | schematic |
 | `fertigung/*-jlcpcb-gerber.zip` | Gerber + drill files, ready to upload to JLCPCB |
-| `fertigung/bestueckung-*.pdf` | assembly drawings |
-| `fertigung/*-ibom.html` | interactive BOM (open in a browser) |
+| `fertigung/bestueckung-*.pdf` | assembly drawings (SMD V2: top side only) |
+| `fertigung/*-ibom.html` | interactive BOM (open in a browser; THT board only, not yet regenerated for SMD V2) |
 | `fertigung/stueckliste.csv` | bill of materials |
 | `fertigung/*-jlcpcb-positionen.csv` | pick-and-place data, origin at the lower left corner of the board |
 
@@ -93,7 +93,8 @@ Both are 2-layer boards made for JLCPCB's standard process (1.6 mm, 1 oz, HASL).
   and the PS/2 pull-ups. Variant B: a second diode in the J3 5 V input. Variant A: check whether the D1 mini has its
   own diode between USB VBUS and its 5 V pin, otherwise the PC could still feed the USB host. Until then: pull JP1
   while USB is connected.
-- The traces were laid out by a simple grid router and checked with KiCad's DRC — functional, not pretty.
+- THT board: traces laid out by a simple grid router and checked with KiCad's DRC — functional, not pretty.
+  SMD V2: routed with Freerouting; GND runs through the copper pours on both layers.
 
 Designed by Stefan Fambach — [fambach.net](https://www.fambach.net). The hardware in this folder is licensed under the
 [MIT License](LICENSE), like the firmware.
