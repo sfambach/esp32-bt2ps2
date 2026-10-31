@@ -108,6 +108,18 @@ Project works as-is under Visual Studio Code (2024). You need to have the Espres
 
 9- If succesfully built, connect and flash your ESP32 board (Ctrl+E then F, or the flash button)
 
+Or on the command line (Linux; on Windows use the ESP-IDF installer and `idf.py` in its shell):
+
+```
+git clone -b v6.1.0 --recursive https://github.com/espressif/esp-idf.git
+cd esp-idf && ./install.sh esp32 && . ./export.sh
+git clone https://github.com/sfambach/esp32-bt2ps2.git
+cd esp32-bt2ps2 && idf.py build
+idf.py -p /dev/ttyUSB0 -b 115200 flash monitor
+```
+
+Keep the committed `sdkconfig` (1000 Hz FreeRTOS tick, BLE 4.2 API enabled).
+
 Refer to the following link for more instructions:
 
 * https://github.com/espressif/vscode-esp-idf-extension/blob/master/docs/tutorial/install.md
