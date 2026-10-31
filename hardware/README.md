@@ -12,11 +12,11 @@ defaults (`KB_CLK_PIN = 22`, `KB_DATA_PIN = 23`), so the firmware runs unchanged
 
 | | [SMD](bt2ps2-smd) | [THT](bt2ps2-tht) |
 |---|---|---|
-| ESP32 | **A:** D1 mini ESP32 plugged in, **or B:** ESP32-WROOM-32E soldered on | same |
+| ESP32 | ESP32-WROOM-32E soldered on (V2; V1 also took a D1 mini ESP32) | **A:** D1 mini ESP32 plugged in, **or B:** ESP32-WROOM-32E soldered on |
 | Level shifter 5 V ↔ 3.3 V | 2 × BSS138 (SOT-23) + 10 kΩ | 2 × 2N7000 (TO-92) + 10 kΩ |
 | 3.3 V regulator (variant B only) | AP2112K-3.3 | LD1117V33 (TO-220) |
 | Passives | 0805 | through-hole (the WROOM is the only SMD part) |
-| Size | 61.0 × 34.1 mm | 83.0 × 34.1 mm |
+| Size | 49.0 × 30.0 mm (V2; V1: 61.0 × 34.1 mm) | 83.0 × 34.1 mm |
 
 Both are 2-layer boards made for JLCPCB's standard process (1.6 mm, 1 oz, HASL). Designed with **KiCad 10**.
 
@@ -24,6 +24,10 @@ Both are 2-layer boards made for JLCPCB's standard process (1.6 mm, 1 oz, HASL).
 [release v0.1](https://github.com/sfambach/esp32-bt2ps2/releases/tag/v0.1).
 
 ## SMD board
+
+> 🚧 **V2 in progress (2026-10-31):** the D1 mini socket is gone, the WROOM is rotated 90° (antenna to the left),
+> all parts are on the front and the board shrank to 49 × 30 mm. **Parts are placed, the board is not routed yet.**
+> The pictures, Gerbers and the enclosure below still show V1.
 
 ![SMD board, 3D view](bt2ps2-smd/bt2ps2-3d.png)
 
