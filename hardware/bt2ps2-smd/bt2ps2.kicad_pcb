@@ -1994,7 +1994,7 @@
 		(descr "Through hole straight pin header, 1x04, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x04 2.54mm single row")
 		(property "Reference" "J3"
-			(at -2.8 1 0)
+			(at 0 -2.6 0)
 			(layer "F.SilkS")
 			(uuid "4d6599b7-9e41-4df4-bb32-77ace617d970")
 			(effects
@@ -5615,10 +5615,54 @@
 		(layer "Edge.Cuts")
 		(uuid "b3371353-9c7a-4e35-95f6-8fc04e513c10")
 	)
+	(gr_text "G"
+		(at 107 90.9 0)
+		(layer "F.SilkS")
+		(uuid "57f5be03-a730-47f0-a7ad-c117481e8991")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "TX"
+		(at 109.54 90.9 0)
+		(layer "F.SilkS")
+		(uuid "4154d593-e6cd-48c8-9b4a-431fc1e7b8c3")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
 	(gr_text "BOOT"
 		(at 109.85 110.4 0)
 		(layer "F.SilkS")
 		(uuid "232665ca-476a-4688-aeb6-00a2b61f7130")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "RX"
+		(at 112.08 90.9 0)
+		(layer "F.SilkS")
+		(uuid "93bf96ab-3f8f-4747-a038-7c79eea16135")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(gr_text "5V"
+		(at 114.62 90.9 0)
+		(layer "F.SilkS")
+		(uuid "962bb9a4-27bc-4432-a4e2-44d2c9bc39ed")
 		(effects
 			(font
 				(size 1 1)
