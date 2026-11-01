@@ -1,0 +1,6 @@
+"Bauteile","Wert","Gehaeuse","Anzahl"
+"J1","PS2_Tastatur","Connector_JST:JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical","1"
+"JP1","5V_vom_PC","Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical","1"
+"Q1,Q2","2N7000","Package_TO_SOT_THT:TO-92_Inline_Wide","2"
+"R1,R2,R3,R4","10k","Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal","4"
+"U1","D1_mini_ESP32","bt2ps2-tht:D1_mini_ESP32_Sockel","1"
