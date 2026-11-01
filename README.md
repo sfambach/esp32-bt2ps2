@@ -10,18 +10,19 @@ FreeRTOS ticking rate of 1000hz and other configs are critical. Be sure to use t
 
 ## Hardware (this fork)
 
-This fork adds **carrier boards** for the adapter in [`hardware/`](hardware/README.md): an SMD board with a soldered-on
-*ESP32-WROOM-32E* and two through-hole boards, one for a plugged-in *D1 mini ESP32* and one for a soldered-on WROOM,
-each with level shifters and a 4-pin connector for a PS/2 or AT keyboard cable. KiCad 10 files, Gerbers for JLCPCB and schematics are included;
-downloads are on the [release v0.1](https://github.com/sfambach/esp32-bt2ps2/releases/tag/v0.1).
+This fork adds **carrier boards** for the adapter in [`hardware/`](hardware/README.md), each with level shifters and a
+4-pin connector for a PS/2 or AT keyboard cable. KiCad 10 files, Gerbers for JLCPCB, schematics and bills of
+materials are included.
 
-> ⚠️ **The boards are not tested yet** — designed and DRC-checked, but not manufactured. Details and open points in
-> [`hardware/README.md`](hardware/README.md).
+- **Version 2 (current, [`hardware/v2/`](hardware/v2/README.md)):** SMD board with a soldered-on *ESP32-WROOM-32E*,
+  and two through-hole boards, one for a plugged-in *D1 mini ESP32* and one for a soldered-on WROOM; all with
+  auto-reset or USB for flashing. **Not manufactured yet.**
+- **Version 1 ([`hardware/v1/`](hardware/v1/README.md)):** SMD and THT board, **built and tested**. Gerbers as
+  manufactured on the [release v0.1](https://github.com/sfambach/esp32-bt2ps2/releases/tag/v0.1).
 
-| SMD | THT D1 mini | THT WROOM |
+| V2 SMD | V2 THT D1 mini | V2 THT WROOM |
 |---|---|---|
-| ![SMD board](hardware/bt2ps2-smd/bt2ps2-3d.png) | ![THT D1 mini board](hardware/bt2ps2-tht-d1/bt2ps2-tht-d1-3d.png) | ![THT WROOM board](hardware/bt2ps2-tht-wroom/bt2ps2-tht-wroom-3d.png) |
-
+| ![SMD board](hardware/v2/smd/bt2ps2-3d.png) | ![THT D1 mini board](hardware/v2/tht-d1/bt2ps2-tht-d1-3d.png) | ![THT WROOM board](hardware/v2/tht-wroom/bt2ps2-tht-wroom-3d.png) |
 
 Project to adapt a Bluetooth or BLE keyboard and/or mouse to use on a computer with compatible PS/2 keyboard/mouse connector/s, wirelessly.
 Note that big DIN 5 pin connectors ("AT" keyboard) and Mini-DINs (the violet ones) are equally supported.
